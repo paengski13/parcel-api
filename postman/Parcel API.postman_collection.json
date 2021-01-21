@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "002724ea-62b7-4df3-94b2-52ebb28818e1",
+		"name": "Parcel API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d690e49e-5d76-4822-9c8b-61ca0c248fce",
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.environment.set(\"auth_token\", response['token']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/register?name=Rafael Torres&email=rafaeltorres0307@gmail.com&password=courier123",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Rafael Torres"
+						},
+						{
+							"key": "email",
+							"value": "rafaeltorres0307@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "courier123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25bf426d-9fdc-461d-8e98-c87a0ecb791b",
+						"exec": [
+							"const response = pm.response.json();",
+							"pm.environment.set(\"auth_token\", response['token']);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/login?email=rafaeltorres0307@gmail.com&password=courier123",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "rafaeltorres0307@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "courier123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Parcel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a745a0c-9dad-4566-9221-5c349a16ff44",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"New smartphone\",\n    \"description\":\"A box with a new smartphone\",\n    \"standards\": [\n        {\n            \"model\":\"weight\",\n            \"value\":0.4\n        },\n        {\n            \"model\":\"volume\",\n            \"value\":0.00079\n        },\n        {\n            \"model\":\"value\",\n            \"value\":1300\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/parcels",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"parcels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Parcel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5262e613-5dd9-4517-85d0-5156e9ffd511",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Old smartphone\",\n    \"description\":\"A box with a old smartphone\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/parcels/16",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"parcels",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parcel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dac14212-17ae-4710-9b47-5271d95c6a37",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/parcels/16",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"parcels",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parcel Sum",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dbe824a-58b4-4e48-8ea4-2d8423406d4e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/parcels/prices?parcelIds=1,2,3",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"parcels",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "parcelIds",
+							"value": "1,2,3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Parcel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ef5c083-507c-4799-b715-12483052c205",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}/api/parcels/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"parcels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fdc686b7-fb66-43c1-9f0f-229e63d0ffe7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ac7b4d24-712e-43e7-a7fd-3fd98b1cc551",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
