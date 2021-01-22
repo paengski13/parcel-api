@@ -30,7 +30,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{protocol}}://{{domain}}/api/register?name=Rafael Torres&email=rafaeltorres0307@gmail.com&password=courier123",
+					"raw": "{{protocol}}://{{domain}}/api/register?name={{name}}&email={{email}}&password={{password}}",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{domain}}"
@@ -42,15 +42,15 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Rafael Torres"
+							"value": "{{name}}"
 						},
 						{
 							"key": "email",
-							"value": "rafaeltorres0307@gmail.com"
+							"value": "{{email}}"
 						},
 						{
 							"key": "password",
-							"value": "courier123"
+							"value": "{{password}}"
 						}
 					]
 				}
@@ -82,7 +82,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{protocol}}://{{domain}}/api/login?email=rafaeltorres0307@gmail.com&password=courier123",
+					"raw": "{{protocol}}://{{domain}}/api/login?email={{email}}&password={{password}}",
 					"protocol": "{{protocol}}",
 					"host": [
 						"{{domain}}"
@@ -94,11 +94,11 @@
 					"query": [
 						{
 							"key": "email",
-							"value": "rafaeltorres0307@gmail.com"
+							"value": "{{email}}"
 						},
 						{
 							"key": "password",
-							"value": "courier123"
+							"value": "{{password}}"
 						}
 					]
 				}
